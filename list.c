@@ -141,9 +141,11 @@ void *popBack(List *list) { // elimina el ultimo nodo de la lista
 }
 
 void *popCurrent(List *list) { // elimina el nodo actual
+  
   if(list == NULL || list->current == NULL) { // si la lista es nula o el nodo actual es nulo
     return NULL;
   }
+  Node * eliminado = list->current;
   if(list->current->prev!= NULL){ // si es que el nodo anterior no es nulo
     list->current->prev->next = list->current->next;
   } else { // si es que el nodo anterior es nulo
@@ -156,7 +158,7 @@ void *popCurrent(List *list) { // elimina el nodo actual
   }
   list->current = list->current->next; // el nodo actual pasa a ser el siguiente
   free(list->current);
-  return list->current->data;
+  return eliminado->data;
 
 
 }
