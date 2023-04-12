@@ -1,0 +1,15 @@
+Wed Apr 12 10:31:42 AM -04 2023: 
+ list.c | 126 +++++++++++++++++++++++++++++++++++++++++++----------------------
+ 1 file changed, 83 insertions(+), 43 deletions(-)
+In file included from test.c:5:
+list.c: In function ‘popFront’:
+list.c:131:1: error: control reaches end of non-void function [-Werror=return-type]
+  131 | }
+      | ^
+list.c: In function ‘popBack’:
+list.c:139:1: error: control reaches end of non-void function [-Werror=return-type]
+  139 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+f391440
