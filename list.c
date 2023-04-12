@@ -122,29 +122,6 @@ void pushCurrent(List *list, void *data) { // agrega un nodo despues del nodo ac
   list->current->next = new;
 }
 
-void *popCurrent(List *list) { // elimina el nodo actual
-  
-  if(list == NULL || list->current == NULL) { // si la lista es nula o el nodo actual es nulo
-    return NULL;
-  }
-  void * data = list->current->data;
-  if(list->current->prev!= NULL){ // si es que el nodo anterior no es nulo
-    list->current->prev->next = list->current->next;
-  } else { // si es que el nodo anterior es nulo
-    list->head = list->current->next;
-  }
-  if(list->current->next != NULL){ // si es que el nodo siguiente no es nulo
-    list->current->next->prev = list->current->prev;
-  } else { // si es que el nodo siguiente es nulo
-    list->tail = list->current->prev;
-  }
-  list->current = list->current->next; // el nodo actual pasa a ser el siguiente
-  free(list->current);
-  return data;
-
-
-}
-
 void *popFront(List *list) { // elimina el primer nodo de la lista
   if (list == NULL || list->head == NULL) { // si la lista es nula o el primer nodo es nulo
     return NULL;
@@ -161,6 +138,31 @@ void *popBack(List *list) { // elimina el ultimo nodo de la lista
   list->current = list->tail;
   popCurrent(list); // elimina el nodo actual
   return list->current->data;
+}
+
+void *popCurrent(List *list) { // elimina el nodo actual
+  
+  if(list == NULL || list->current == NULL) { // si la lista es nula o el nodo actual es nulo
+    return NULL;
+  }
+  void * data = list->current->data;
+  Node *aux = list->current;
+
+  if(list->current->prev!= NULL){ // si es que el nodo anterior no es nulo
+    list->current->prev->next = list->current->next;
+  } else { // si es que el nodo anterior es nulo
+    list->head = list->current->next;
+  }
+  if(list->current->next != NULL){ // si es que el nodo siguiente no es nulo
+    list->current->next->prev = list->current->prev;
+  } else { // si es que el nodo siguiente es nulo
+    list->tail = list->current->prev;
+  }
+  list->current = list->current->next; // el nodo actual pasa a ser el siguiente
+  free(aux);
+  return data;
+
+
 }
 
 

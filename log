@@ -33,3 +33,9 @@ Wed Apr 12 11:01:00 AM -04 2023:
  1 file changed, 18 insertions(+), 18 deletions(-)
  tests:  0|0
 b464fc4
+Wed Apr 12 11:02:34 AM -04 2023: 
+ list.c | 40 +++++++++++++++++++++-------------------
+ 1 file changed, 21 insertions(+), 19 deletions(-)
+ tests:  12|0
+total_score: 70/70
+6732ce2
