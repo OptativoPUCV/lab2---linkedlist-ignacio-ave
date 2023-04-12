@@ -128,6 +128,7 @@ void *popFront(List *list) { // elimina el primer nodo de la lista
   }
   list->current = list->head;
   popCurrent(list); // elimina el nodo actual
+  return list->current->data;
 }
 
 void *popBack(List *list) { // elimina el ultimo nodo de la lista
@@ -136,6 +137,7 @@ void *popBack(List *list) { // elimina el ultimo nodo de la lista
   }
   list->current = list->tail;
   popCurrent(list); // elimina el nodo actual
+  return list->current->data;
 }
 
 void *popCurrent(List *list) { // elimina el nodo actual
