@@ -122,24 +122,6 @@ void pushCurrent(List *list, void *data) { // agrega un nodo despues del nodo ac
   list->current->next = new;
 }
 
-void *popFront(List *list) { // elimina el primer nodo de la lista
-  if (list == NULL || list->head == NULL) { // si la lista es nula o el primer nodo es nulo
-    return NULL;
-  }
-  list->current = list->head;
-  popCurrent(list); // elimina el nodo actual
-  return list->current->data;
-}
-
-void *popBack(List *list) { // elimina el ultimo nodo de la lista
-  if (list == NULL || list->tail == NULL) { // si la lista es nula o el ultimo nodo es nulo
-    return NULL;
-  }
-  list->current = list->tail;
-  popCurrent(list); // elimina el nodo actual
-  return list->current->data;
-}
-
 void *popCurrent(List *list) { // elimina el nodo actual
   
   if(list == NULL || list->current == NULL) { // si la lista es nula o el nodo actual es nulo
@@ -161,6 +143,24 @@ void *popCurrent(List *list) { // elimina el nodo actual
   return data;
 
 
+}
+
+void *popFront(List *list) { // elimina el primer nodo de la lista
+  if (list == NULL || list->head == NULL) { // si la lista es nula o el primer nodo es nulo
+    return NULL;
+  }
+  list->current = list->head;
+  popCurrent(list); // elimina el nodo actual
+  return list->current->data;
+}
+
+void *popBack(List *list) { // elimina el ultimo nodo de la lista
+  if (list == NULL || list->tail == NULL) { // si la lista es nula o el ultimo nodo es nulo
+    return NULL;
+  }
+  list->current = list->tail;
+  popCurrent(list); // elimina el nodo actual
+  return list->current->data;
 }
 
 
